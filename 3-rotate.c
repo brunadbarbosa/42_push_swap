@@ -6,17 +6,18 @@
 /*   By: brmaria- <brmaria-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 19:45:31 by brmaria-          #+#    #+#             */
-/*   Updated: 2025/06/28 20:19:18 by brmaria-         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:49:43 by brmaria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	ft_rotate(t_list **stack)
+
+static void	ft_rotate(t_list **stack)
 {
 	t_list	*tmp;
 	t_list	*tail;
 
-	if(!stack || !(*stack)->content)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;

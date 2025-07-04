@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   2-swap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brmaria- <brmaria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brmaria- <brmaria-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 19:23:28 by brmaria-          #+#    #+#             */
-/*   Updated: 2025/06/30 16:32:33 by brmaria-         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:39:15 by brmaria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	ft_swap(t_list *stack)
+
+static void	ft_swap(t_list *stack)
 {
 	int	tmp;
 
-	if(!stack || !stack->next)
+	if (!stack || !stack->next)
 		return ;
 	tmp = stack->content;
 	stack->content = stack->next->content;

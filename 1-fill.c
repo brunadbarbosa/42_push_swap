@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   1-fill.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brmaria- <brmaria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brmaria- <brmaria-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 19:55:19 by brmaria-          #+#    #+#             */
-/*   Updated: 2025/06/30 23:25:05 by brmaria-         ###   ########.fr       */
+/*   Updated: 2025/07/03 21:22:18 by brmaria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 t_list	*fill_list(char **argv, int count)
 {
-	int	i;
+	int		i;
 	t_list	*new_node;
 	t_list	*stack;
 	long	num;
@@ -71,18 +71,12 @@ t_list	*fill_list(char **argv, int count)
 	{
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)
-		{
-			write (2, "Error\n", 6);
-			exit(1);
-		}
+			ft_error(NULL, NULL, NULL, 0);
 		new_node = ft_lstnew((int)num);
 		if (!new_node)
-		{
-			write (2, "Error\n", 6);
-			exit(1);
-		}
+			ft_error(NULL, new_node, NULL, 0);
 		ft_lstadd_back(&stack, new_node);
 		i++;
 	}
-	return(stack);
+	return (stack);
 }

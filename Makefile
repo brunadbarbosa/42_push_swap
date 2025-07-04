@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brmaria- <brmaria-@student.42.fr>          +#+  +:+       +#+         #
+#    By: brmaria- <brmaria-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/15 19:14:35 by brmaria-          #+#    #+#              #
-#    Updated: 2025/06/30 20:18:10 by brmaria-         ###   ########.fr        #
+#    Updated: 2025/07/04 17:36:47 by brmaria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,17 @@ CFLAGS = -Wall -Wextra -Werror
 
 # basic and additional files:
 SRC =	0-main.c\
+		0.5-split.c\
 		1-fill.c\
 		2-swap.c\
 		3-rotate.c\
 		4-reverse_rotate.c\
-		5-push.c
+		5-push.c\
+		6-indexation.c\
+		7-sorting.c\
+		7.5-sort_tiny.c\
+		7.75-sort_tiny_5.c\
+		8-error.c
 		
 OBJ = $(SRC:.c=.o)
 

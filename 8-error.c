@@ -1,37 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5-push.c                                           :+:      :+:    :+:   */
+/*   8-error.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brmaria- <brmaria-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/03 15:34:31 by brmaria-          #+#    #+#             */
-/*   Updated: 2025/07/03 15:38:45 by brmaria-         ###   ########.fr       */
+/*   Created: 2025/07/03 15:54:44 by brmaria-          #+#    #+#             */
+/*   Updated: 2025/07/04 17:35:55 by brmaria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_push(t_list **stack_src, t_list **stack_dest)
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (!split)
+		return ;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+void	free_stack(t_list *stack)
 {
 	t_list	*tmp;
 
-	if (!*stack_src)
-		return ;
-	tmp = (*stack_src)->next;
-	(*stack_src)->next = *stack_dest;
-	*stack_dest = *stack_src;
-	*stack_src = tmp;
+	while (stack)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
 }
 
-void	do_pa(t_list **stack_a, t_list **stack_b)
+void	ft_error(char **args, t_list *a, t_list *b, int argc)
 {
-	ft_push(stack_b, stack_a);
-	write (1, "pa\n", 3);
-}
-
-void	do_pb(t_list **stack_b, t_list **stack_a)
-{
-	ft_push(stack_a, stack_b);
-	write (1, "pb\n", 3);
+	write(2, "Error\n", 6);
+	if (argc == 2)
+		free_split(args);
+	free_stack(a);
+	free_stack(b);
+	exit(1);
 }

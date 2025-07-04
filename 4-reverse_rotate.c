@@ -6,24 +6,26 @@
 /*   By: brmaria- <brmaria-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 20:20:15 by brmaria-          #+#    #+#             */
-/*   Updated: 2025/06/28 20:35:56 by brmaria-         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:26:11 by brmaria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-t_list	*find_before_bottom(t_list *stack)
+
+static t_list	*find_before_bottom(t_list *stack)
 {
-	while(stack && stack->next && stack->next->next)
+	while (stack && stack->next && stack->next->next)
 		stack = stack->next;
 	return (stack);
 }
+
 void	ft_reverse_rotate(t_list **stack)
 {
 	t_list	*tmp;
 	t_list	*tail;
 	t_list	*before_tail;
 
-	if(!*stack || !(*stack)->content)
+	if (!*stack || !(*stack)->content)
 		return ;
 	tail = find_stack_bottom(*stack);
 	before_tail = find_before_bottom(*stack);
